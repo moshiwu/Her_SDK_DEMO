@@ -1,0 +1,29 @@
+/*
+ *  Localizable.strings
+ *  CCBluetoothAPISample
+ *
+ *  Created by 莫锹文 on 2017/6/28.
+ *  Copyright © 2017年 Calvin Cheung. All rights reserved.
+ */
+
+"电量" = "Battery";
+"Watch ID" = "Watch ID";
+"固件版本" = "Firmware Version";
+"恢复出厂设置" = "Reset";
+"运动数据" = "Sport Data";
+"运动数据数量" = "Sport Data Count";
+"睡眠数据" = "Sleep Data";
+"睡眠数据数量" = "Sleep Data Count";
+"手动删除运动数据" = "Delete Sport Data";
+"手动删除睡眠数据" = "Delete Sleep Data";
+"灯光控制" = "Light Control";
+"响应" = "Response";
+"取消" = "Cancel";
+"成功" = "Success";
+"错误" = "Error";
+"已断开" = "Disconnected";
+"已连接" = "Connected";
+"打开计步" = "Open Pedometer";
+"关闭计步" = "Close Pedometer";
+"打开紫外灯监控" = "Open UV Monitoring";
+"关闭紫外灯监控" = "Close UV Monitoring";

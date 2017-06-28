@@ -1,0 +1,6 @@
+framework module CCBluetoothAPI {
+  umbrella header "CCBluetoothAPI.h"
+
+  export *
+  module * { export * }
+}
