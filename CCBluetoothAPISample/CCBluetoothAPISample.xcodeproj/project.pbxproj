@@ -149,7 +149,8 @@
 				TargetAttributes = {
 					8402AD721BC7AA0700D303CB = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 7827DZ9F2C;
+						DevelopmentTeam = W74YV9GZDZ;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -319,7 +320,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7827DZ9F2C;
+				DEVELOPMENT_TEAM = W74YV9GZDZ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -330,9 +331,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = us.zwen.123;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appscomm.CCBluetoothDemo;
 				PRODUCT_NAME = Sample;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "5d432e94-5431-4d74-8558-707e293aa013";
+				PROVISIONING_PROFILE_SPECIFIER = CCBluetoothDemo_dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -342,8 +344,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 7827DZ9F2C;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = W74YV9GZDZ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -354,9 +356,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = us.zwen.123;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appscomm.CCBluetoothDemo;
 				PRODUCT_NAME = Sample;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "89004ad6-2bb4-478e-b305-d039118946d0";
+				PROVISIONING_PROFILE_SPECIFIER = CCBluetoothDemo_dis;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
