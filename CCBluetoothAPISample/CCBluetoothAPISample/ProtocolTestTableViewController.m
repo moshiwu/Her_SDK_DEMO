@@ -7,7 +7,6 @@
 //
 
 #import "ProtocolTestTableViewController.h"
-#import <CCBluetoothAPI/CCBluetoothAPI.h>
 
 #define MasterCreate CCBluetoothMaster * master = [CCBluetoothMaster sharedInstance]; master.mainDeviceName = self.device.name;
 #define MasterCommit [master commit];
@@ -47,6 +46,8 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification_handler:) name:CCBluetoothDidReceiveShortTapNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification_handler:) name:CCBluetoothDidReceiveLongTapNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification_handler:) name:CCBluetoothDidReceiveShutDownTapNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification_handler:) name:CCBluetoothDidReceiveLowPowerNotification object:nil];
 }
 
 - (void)notification_handler:(NSNotification *)noti

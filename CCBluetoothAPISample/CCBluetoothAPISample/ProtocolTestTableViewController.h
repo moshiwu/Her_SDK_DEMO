@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CCBluetoothAPI/CCBluetoothAPI.h>
+
 #define TR(a) NSLocalizedString(a, a)
 
 @class CCBluetoothDevice;

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D9032FC1F0347F90051B842 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D9032FE1F0347F90051B842 /* Localizable.strings */; };
-		3D9033191F035C9E0051B842 /* CCBluetoothAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D9033181F035C9E0051B842 /* CCBluetoothAPI.framework */; };
+		3DDC635D1F037A8000BF24CC /* CCBluetoothAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DDC635C1F037A8000BF24CC /* CCBluetoothAPI.framework */; };
 		8402AD781BC7AA0700D303CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402AD771BC7AA0700D303CB /* main.m */; };
 		8402AD7B1BC7AA0700D303CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402AD7A1BC7AA0700D303CB /* AppDelegate.m */; };
 		8402AD7E1BC7AA0700D303CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402AD7D1BC7AA0700D303CB /* ViewController.m */; };
@@ -36,7 +36,7 @@
 		3D9032F71F03471E0051B842 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3D9032FD1F0347F90051B842 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D9033001F0348080051B842 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		3D9033181F035C9E0051B842 /* CCBluetoothAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCBluetoothAPI.framework; sourceTree = "<group>"; };
+		3DDC635C1F037A8000BF24CC /* CCBluetoothAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCBluetoothAPI.framework; sourceTree = "<group>"; };
 		8402AD731BC7AA0700D303CB /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8402AD771BC7AA0700D303CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8402AD791BC7AA0700D303CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -57,7 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D9033191F035C9E0051B842 /* CCBluetoothAPI.framework in Frameworks */,
+				3DDC635D1F037A8000BF24CC /* CCBluetoothAPI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +84,7 @@
 		8402AD751BC7AA0700D303CB /* CCBluetoothAPISample */ = {
 			isa = PBXGroup;
 			children = (
-				3D9033181F035C9E0051B842 /* CCBluetoothAPI.framework */,
+				3DDC635C1F037A8000BF24CC /* CCBluetoothAPI.framework */,
 				8402AD791BC7AA0700D303CB /* AppDelegate.h */,
 				8402AD7A1BC7AA0700D303CB /* AppDelegate.m */,
 				8402AD7C1BC7AA0700D303CB /* ViewController.h */,

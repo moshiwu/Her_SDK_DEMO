@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import <CCBluetoothAPI/CCBluetoothAPI.h>
+#import "ProtocolTestTableViewController.h"
 @interface AppDelegate ()
 
 @end

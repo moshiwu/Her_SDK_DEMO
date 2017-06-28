@@ -48,3 +48,6 @@ CCBluetoothAPI/CCBluetoothMaster.h
 CCBluetoothAPI/CCBluetoothTool.h
 CCBluetoothAPI/CCTask.h
 CCBluetoothAPI/Info.plist
+CCBluetoothAPI.xcodeproj/project.pbxproj
+CCBluetoothAPI.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+CCBluetoothAPI.xcodeproj/project.xcworkspace/xcshareddata/CCBluetoothAPI.xcscmblueprint

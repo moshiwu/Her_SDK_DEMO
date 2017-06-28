@@ -17,7 +17,7 @@ extern NSNotificationName const CCBluetoothDidHeartRateNotification;
 extern NSNotificationName const CCBluetoothDidReceiveShortTapNotification;
 extern NSNotificationName const CCBluetoothDidReceiveLongTapNotification;
 extern NSNotificationName const CCBluetoothDidReceiveShutDownTapNotification;
-
+extern NSNotificationName const CCBluetoothDidReceiveLowPowerNotification;
 
 #ifdef MyWeakSelf
   #undef MyWeakSelf
