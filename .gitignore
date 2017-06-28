@@ -20,7 +20,17 @@ DerivedData
 Pods/
 doc/
 
-CCBluetoothAPI
 appledoc.sh
 build.sh
 README.md
+CCBluetoothAPI/CCBluetoothDataTypes.m
+CCBluetoothAPI/CCBluetoothDevice+Data.m
+CCBluetoothAPI/CCBluetoothDevice+FirmwareInfo.m
+CCBluetoothAPI/CCBluetoothDevice+Reminder.m
+CCBluetoothAPI/CCBluetoothDevice+Settings.m
+CCBluetoothAPI/CCBluetoothDevice+UserInfo.m
+CCBluetoothAPI/CCBluetoothDevice.m
+CCBluetoothAPI/CCBluetoothManager.m
+CCBluetoothAPI/CCBluetoothMaster.m
+CCBluetoothAPI/CCBluetoothTool.m
+CCBluetoothAPI/CCTask.m
