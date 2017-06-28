@@ -34,7 +34,6 @@
 /* Begin PBXFileReference section */
 		3D9032F61F03471E0051B842 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		3D9032F71F03471E0051B842 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		3D9032F91F0347490051B842 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3D9032FD1F0347F90051B842 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D9033001F0348080051B842 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3D9033181F035C9E0051B842 /* CCBluetoothAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCBluetoothAPI.framework; sourceTree = "<group>"; };
@@ -216,7 +215,6 @@
 			children = (
 				8402AD801BC7AA0700D303CB /* Base */,
 				3D9032F61F03471E0051B842 /* zh-Hans */,
-				3D9032F91F0347490051B842 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
