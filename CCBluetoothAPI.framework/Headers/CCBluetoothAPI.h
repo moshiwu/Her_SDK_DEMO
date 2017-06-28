@@ -18,5 +18,7 @@
 #import "CCBluetoothDevice+UserInfo.h"
 #import "CCBluetoothDevice+Reminder.h"
 #import "CCBluetoothMaster.h"
+#import "CCBluetoothTool.h"
+#import "CCTask.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 #endif /* CCBluetoothAPI_h */
