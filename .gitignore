@@ -34,3 +34,17 @@ CCBluetoothAPI/CCBluetoothManager.m
 CCBluetoothAPI/CCBluetoothMaster.m
 CCBluetoothAPI/CCBluetoothTool.m
 CCBluetoothAPI/CCTask.m
+CCBluetoothAPI/CCBluetoothAPI.h
+CCBluetoothAPI/CCBluetoothDataTypes.h
+CCBluetoothAPI/CCBluetoothDevice+Data.h
+CCBluetoothAPI/CCBluetoothDevice+FirmwareInfo.h
+CCBluetoothAPI/CCBluetoothDevice+Reminder.h
+CCBluetoothAPI/CCBluetoothDevice+Settings.h
+CCBluetoothAPI/CCBluetoothDevice+UserInfo.h
+CCBluetoothAPI/CCBluetoothDevice.h
+CCBluetoothAPI/CCBluetoothDeviceProtocol.h
+CCBluetoothAPI/CCBluetoothManager.h
+CCBluetoothAPI/CCBluetoothMaster.h
+CCBluetoothAPI/CCBluetoothTool.h
+CCBluetoothAPI/CCTask.h
+CCBluetoothAPI/Info.plist
