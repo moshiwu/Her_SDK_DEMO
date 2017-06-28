@@ -27,3 +27,8 @@
 "关闭计步" = "Close Pedometer";
 "打开紫外灯监控" = "Open UV Monitoring";
 "关闭紫外灯监控" = "Close UV Monitoring";
+
+"收到短按通知" = "Receive short tap notification";
+"收到长按通知" = "Receive long tap notification";
+"收到关机通知" = "Receive shut down tap notification";
+"收到低电通知" = "Receive low power notification";

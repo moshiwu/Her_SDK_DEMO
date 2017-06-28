@@ -46,13 +46,30 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification_handler:) name:CCBluetoothDidReceiveShortTapNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification_handler:) name:CCBluetoothDidReceiveLongTapNotification object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification_handler:) name:CCBluetoothDidReceiveShutDownTapNotification object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification_handler:) name:CCBluetoothDidReceiveLowPowerNotification object:nil];
+
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification_handler:) name:CCBluetoothDidReceiveLowPowerNotification object:nil];
 }
 
 - (void)notification_handler:(NSNotification *)noti
 {
 	NSLog(@"receive notification : %@", noti.name);
+
+	if ([noti.name isEqualToString:CCBluetoothDidReceiveShortTapNotification])
+	{
+		[self showMessage:TR(@"收到短按通知")];
+	}
+	else if ([noti.name isEqualToString:CCBluetoothDidReceiveLongTapNotification])
+	{
+		[self showMessage:TR(@"收到长按通知")];
+	}
+	else if ([noti.name isEqualToString:CCBluetoothDidReceiveShutDownTapNotification])
+	{
+		[self showMessage:TR(@"收到关机通知")];
+	}
+	else if ([noti.name isEqualToString:CCBluetoothDidReceiveLowPowerNotification])
+	{
+		[self showMessage:TR(@"收到低电通知")];
+	}
 }
 
 - (void)showMessage:(NSString *)message
