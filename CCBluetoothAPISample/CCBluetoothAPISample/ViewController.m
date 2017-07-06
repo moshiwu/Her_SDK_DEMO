@@ -8,7 +8,13 @@
 
 #import "ViewController.h"
 #import "ProtocolTestTableViewController.h"
+#import <iOSDFULibrary/iOSDFULibrary-Swift.h>
+#import "Sample-Swift.h"
+#import <AFNetworking/AFNetworking.h>
+
 @interface ViewController ()
+
+@property (nonatomic, strong) DFUHelper *dfuHelper;
 
 @property (strong, nonatomic) NSArray *devices;
 @property (assign, nonatomic) NSInteger selected;
@@ -26,6 +32,9 @@
 
 	UIBarButtonItem *refreshBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(scanDevices)];
 	self.navigationItem.rightBarButtonItem = refreshBarButtonItem;
+
+	UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:TR(@"OTA(failed device)") style:UIBarButtonItemStyleDone target:self action:@selector(retryToUpgradeFailedDevice)];
+	self.navigationItem.leftBarButtonItem = leftBarButtonItem;
 }
 
 - (void)scanDevices
@@ -55,8 +64,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReusedID"];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
+
+	cell.selectionStyle = UITableViewCellSelectionStyleNone;
+
 	CCBluetoothDevice *device = [_devices objectAtIndex:indexPath.row];
 
 	UILabel *txtLabel = (UILabel *)[cell viewWithTag:1];
@@ -94,6 +104,22 @@
 	}];
 }
 
+- (void)upgradingWithFilePath:(NSURL *)filePath
+{
+	NSString *deviceName = @"10#00000";
+
+	NSLog(@"try to start OTA");
+	self.dfuHelper = [[DFUHelper alloc] initWithPeripheralName:deviceName
+														   url:filePath
+													  progress:^(NSInteger progress, NSString *_Nonnull message) {
+		NSLog(@"progress %ld %@", progress, message);
+	} success:^(NSInteger code, NSString *_Nonnull message) {
+		NSLog(@"success %ld %@", code, message);
+	} failure:^(NSInteger code, NSString *_Nonnull message) {
+		NSLog(@"faile %ld %@", code, message);
+	}];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 	if ([segue.identifier isEqualToString:@"ShowProtocolTest"])
@@ -101,6 +127,54 @@
 		ProtocolTestTableViewController *p = (ProtocolTestTableViewController *)[segue destinationViewController];
 		p.device = _devices[_selected];
 	}
+}
+
+#pragma mark - retryToUpgradeFailedDevice
+- (void)retryToUpgradeFailedDevice
+{
+	MyWeakSelf;
+	//query file path
+	AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+
+	manager.requestSerializer = [AFJSONRequestSerializer serializer];
+	manager.responseSerializer = [AFJSONResponseSerializer serializer];
+
+	[manager POST:@"https://new.fashioncomm.com/device/queryProductVersion"
+	   parameters:@{
+		@"seq" : [NSString stringWithFormat:@"%f", [NSDate date].timeIntervalSince1970],
+		@"versionNo" : @"112",
+		@"clientType" : @"iphone",
+		@"productCode" : @"wt10ahk_oem_her",
+		@"customerCode" : @"WT10A_HK",
+	}
+		 progress:nil
+		  success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
+		NSLog(@"%@", responseObject);
+
+		NSString *updateUrl = responseObject[@"crmProductVersion"][@"updateUrl"];
+
+	    //download file
+		AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+
+		NSURLSessionDownloadTask *task2 = [manager downloadTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:updateUrl]]
+																  progress:^(NSProgress *_Nonnull downloadProgress) {
+			NSLog(@"file download progress : %@", downloadProgress);
+		}
+															   destination:^NSURL *_Nonnull (NSURL *_Nonnull targetPath, NSURLResponse *_Nonnull response) {
+			NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+			return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+		}
+														 completionHandler:^(NSURLResponse *_Nonnull response, NSURL *_Nullable filePath, NSError *_Nullable error) {
+	        //START OTA
+			NSLog(@"file path : %@", filePath);
+			[ws upgradingWithFilePath:filePath];
+		}];
+
+		[task2 resume];
+	}
+		  failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
+		NSLog(@"query remote firmware version fail");
+	}];
 }
 
 @end

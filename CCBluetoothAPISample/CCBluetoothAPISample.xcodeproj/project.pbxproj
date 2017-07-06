@@ -424,6 +424,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appscomm.CCBluetoothDemo;
 				PRODUCT_NAME = Sample;
 				PROVISIONING_PROFILE = "5d432e94-5431-4d74-8558-707e293aa013";
@@ -458,6 +459,7 @@
 					"$(inherited)",
 					"-ObjC",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appscomm.CCBluetoothDemo;
 				PRODUCT_NAME = Sample;
 				PROVISIONING_PROFILE = "89004ad6-2bb4-478e-b305-d039118946d0";

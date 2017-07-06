@@ -36,3 +36,4 @@
 
 "OTA" = "OTA";
 "OTA(已进入DFU模式)" = "OTA(已进入DFU模式)";
+"OTA(failed device)" = "OTA(失败设备)";

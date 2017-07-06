@@ -44,9 +44,7 @@
 		TR(@"关闭计步"),
 		TR(@"打开紫外灯监控"),
 		TR(@"关闭紫外灯监控"),
-		TR(@"OTA"),
-		TR(@"OTA(已进入DFU模式)")
-
+		TR(@"OTA")
 	];
 
 	//do not set delegate when using CCBluetoothMaster
@@ -360,8 +358,8 @@
 			{
 				NSLog(@"local : %@  remote : %@", localVersion, remoteVersion);
 
-				if (remoteVersion.floatValue > localVersion.floatValue)
-//				if (true)
+//				if (remoteVersion.floatValue > localVersion.floatValue)
+				if (true)
 				{
 					NSLog(@"need upgrade");
 
@@ -412,53 +410,6 @@
 				}
 			}
 		});
-		return;
-	}
-	else if ([TR(@"OTA(已进入DFU模式)") isEqualToString:title])
-	{
-		//query file path
-		AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-
-		manager.requestSerializer = [AFJSONRequestSerializer serializer];
-		manager.responseSerializer = [AFJSONResponseSerializer serializer];
-
-		[manager POST:@"https://new.fashioncomm.com/device/queryProductVersion"
-		   parameters:@{
-			@"seq" : [NSString stringWithFormat:@"%f", [NSDate date].timeIntervalSince1970],
-			@"versionNo" : @"112",
-			@"clientType" : @"iphone",
-			@"productCode" : @"wt10ahk_oem_her",
-			@"customerCode" : @"WT10A_HK",
-		}
-			 progress:nil
-			  success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
-			NSLog(@"%@", responseObject);
-
-			NSString *updateUrl = responseObject[@"crmProductVersion"][@"updateUrl"];
-
-		    //download file
-			AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-
-			NSURLSessionDownloadTask *task2 = [manager downloadTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:updateUrl]]
-																	  progress:^(NSProgress *_Nonnull downloadProgress) {
-				NSLog(@"file download progress : %@", downloadProgress);
-			}
-																   destination:^NSURL *_Nonnull (NSURL *_Nonnull targetPath, NSURLResponse *_Nonnull response) {
-				NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
-				return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
-			}
-															 completionHandler:^(NSURLResponse *_Nonnull response, NSURL *_Nullable filePath, NSError *_Nullable error) {
-		        //START OTA
-				NSLog(@"file path : %@", filePath);
-				[ws upgradingWithFilePath:filePath];
-			}];
-
-			[task2 resume];
-		}
-			  failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
-			NSLog(@"query remote firmware version fail");
-		}];
-
 		return;
 	}
 

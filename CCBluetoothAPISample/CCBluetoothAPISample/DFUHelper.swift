@@ -139,6 +139,7 @@ extension DFUHelper: CBCentralManagerDelegate {
     }
 
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        printLog("connect with device")
         peripheral.delegate = self
         peripheral.discoverServices(nil)
     }
