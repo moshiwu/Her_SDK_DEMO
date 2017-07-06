@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D43FE021F0DC5D100087E48 /* DFUHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D43FE011F0DC5D100087E48 /* DFUHelper.swift */; };
 		3D9032FC1F0347F90051B842 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D9032FE1F0347F90051B842 /* Localizable.strings */; };
 		3DDC635D1F037A8000BF24CC /* CCBluetoothAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DDC635C1F037A8000BF24CC /* CCBluetoothAPI.framework */; };
+		54CD83C5EA15FAB63420CF21 /* Pods_CCBluetoothAPISample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C2B51059194A4A206D2A9F /* Pods_CCBluetoothAPISample.framework */; };
 		8402AD781BC7AA0700D303CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402AD771BC7AA0700D303CB /* main.m */; };
 		8402AD7B1BC7AA0700D303CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402AD7A1BC7AA0700D303CB /* AppDelegate.m */; };
 		8402AD7E1BC7AA0700D303CB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402AD7D1BC7AA0700D303CB /* ViewController.m */; };
@@ -32,11 +34,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3D43FDFE1F0DC4CC00087E48 /* CCBluetoothAPISample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CCBluetoothAPISample-Bridging-Header.h"; sourceTree = "<group>"; };
+		3D43FE011F0DC5D100087E48 /* DFUHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFUHelper.swift; sourceTree = "<group>"; };
 		3D9032F61F03471E0051B842 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		3D9032F71F03471E0051B842 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3D9032FD1F0347F90051B842 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D9033001F0348080051B842 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		3DDC635C1F037A8000BF24CC /* CCBluetoothAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCBluetoothAPI.framework; sourceTree = "<group>"; };
+		4BD7A62970BB63D78E80C701 /* Pods-CCBluetoothAPISample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCBluetoothAPISample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CCBluetoothAPISample/Pods-CCBluetoothAPISample.release.xcconfig"; sourceTree = "<group>"; };
+		7084ECBE38D1E62F9ABA032D /* Pods-CCBluetoothAPISample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCBluetoothAPISample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CCBluetoothAPISample/Pods-CCBluetoothAPISample.debug.xcconfig"; sourceTree = "<group>"; };
 		8402AD731BC7AA0700D303CB /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8402AD771BC7AA0700D303CB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8402AD791BC7AA0700D303CB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -50,6 +56,7 @@
 		845AAC0E1BCBB6D800B284E3 /* ProtocolTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtocolTestTableViewController.h; sourceTree = "<group>"; };
 		845AAC0F1BCBB6D800B284E3 /* ProtocolTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProtocolTestTableViewController.m; sourceTree = "<group>"; };
 		84BB1CEE1BE1FE6B005D4384 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C6C2B51059194A4A206D2A9F /* Pods_CCBluetoothAPISample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CCBluetoothAPISample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,18 +65,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DDC635D1F037A8000BF24CC /* CCBluetoothAPI.framework in Frameworks */,
+				54CD83C5EA15FAB63420CF21 /* Pods_CCBluetoothAPISample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A6BEB0DB5BEBED8B5DA6460 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7084ECBE38D1E62F9ABA032D /* Pods-CCBluetoothAPISample.debug.xcconfig */,
+				4BD7A62970BB63D78E80C701 /* Pods-CCBluetoothAPISample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3C2DD09571C8042E1590779C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C6C2B51059194A4A206D2A9F /* Pods_CCBluetoothAPISample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8402AD6A1BC7AA0700D303CB = {
 			isa = PBXGroup;
 			children = (
 				8402AD751BC7AA0700D303CB /* CCBluetoothAPISample */,
 				84BB1CEB1BE1FE6B005D4384 /* CCBluetoothAPI */,
 				8402AD741BC7AA0700D303CB /* Products */,
+				1A6BEB0DB5BEBED8B5DA6460 /* Pods */,
+				3C2DD09571C8042E1590779C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,12 +118,14 @@
 				8402AD7D1BC7AA0700D303CB /* ViewController.m */,
 				845AAC0E1BCBB6D800B284E3 /* ProtocolTestTableViewController.h */,
 				845AAC0F1BCBB6D800B284E3 /* ProtocolTestTableViewController.m */,
+				3D43FE011F0DC5D100087E48 /* DFUHelper.swift */,
 				3D9032FE1F0347F90051B842 /* Localizable.strings */,
 				8402AD7F1BC7AA0700D303CB /* Main.storyboard */,
 				8402AD821BC7AA0700D303CB /* Assets.xcassets */,
 				8402AD841BC7AA0700D303CB /* LaunchScreen.storyboard */,
 				8402AD871BC7AA0700D303CB /* Info.plist */,
 				8402AD761BC7AA0700D303CB /* Supporting Files */,
+				3D43FDFE1F0DC4CC00087E48 /* CCBluetoothAPISample-Bridging-Header.h */,
 			);
 			path = CCBluetoothAPISample;
 			sourceTree = "<group>";
@@ -124,10 +153,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8402AD8A1BC7AA0700D303CB /* Build configuration list for PBXNativeTarget "CCBluetoothAPISample" */;
 			buildPhases = (
+				1355484B9CA8161418DF85AC /* [CP] Check Pods Manifest.lock */,
 				8402AD6F1BC7AA0700D303CB /* Sources */,
 				8402AD701BC7AA0700D303CB /* Frameworks */,
 				8402AD711BC7AA0700D303CB /* Resources */,
 				84BB1CF61BE1FE6B005D4384 /* Embed Frameworks */,
+				E6B13A774B81FA5ECC642939 /* [CP] Embed Pods Frameworks */,
+				1A7EB41BEA3364C1B2EEF562 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,12 +176,13 @@
 		8402AD6B1BC7AA0700D303CB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Calvin Cheung";
 				TargetAttributes = {
 					8402AD721BC7AA0700D303CB = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = W74YV9GZDZ;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -187,6 +220,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1355484B9CA8161418DF85AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		1A7EB41BEA3364C1B2EEF562 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CCBluetoothAPISample/Pods-CCBluetoothAPISample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E6B13A774B81FA5ECC642939 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CCBluetoothAPISample/Pods-CCBluetoothAPISample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8402AD6F1BC7AA0700D303CB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -195,6 +276,7 @@
 				8402AD7E1BC7AA0700D303CB /* ViewController.m in Sources */,
 				8402AD7B1BC7AA0700D303CB /* AppDelegate.m in Sources */,
 				845AAC101BCBB6D800B284E3 /* ProtocolTestTableViewController.m in Sources */,
+				3D43FE021F0DC5D100087E48 /* DFUHelper.swift in Sources */,
 				8402AD781BC7AA0700D303CB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,8 +328,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -290,8 +374,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -310,14 +396,18 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		8402AD8B1BC7AA0700D303CB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7084ECBE38D1E62F9ABA032D /* Pods-CCBluetoothAPISample.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = W74YV9GZDZ;
@@ -330,19 +420,28 @@
 				INFOPLIST_FILE = CCBluetoothAPISample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.appscomm.CCBluetoothDemo;
 				PRODUCT_NAME = Sample;
 				PROVISIONING_PROFILE = "5d432e94-5431-4d74-8558-707e293aa013";
 				PROVISIONING_PROFILE_SPECIFIER = CCBluetoothDemo_dev;
+				SWIFT_OBJC_BRIDGING_HEADER = "CCBluetoothAPISample/CCBluetoothAPISample-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		8402AD8C1BC7AA0700D303CB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BD7A62970BB63D78E80C701 /* Pods-CCBluetoothAPISample.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = W74YV9GZDZ;
@@ -355,11 +454,16 @@
 				INFOPLIST_FILE = CCBluetoothAPISample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.appscomm.CCBluetoothDemo;
 				PRODUCT_NAME = Sample;
 				PROVISIONING_PROFILE = "89004ad6-2bb4-478e-b305-d039118946d0";
 				PROVISIONING_PROFILE_SPECIFIER = CCBluetoothDemo_dis;
+				SWIFT_OBJC_BRIDGING_HEADER = "CCBluetoothAPISample/CCBluetoothAPISample-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

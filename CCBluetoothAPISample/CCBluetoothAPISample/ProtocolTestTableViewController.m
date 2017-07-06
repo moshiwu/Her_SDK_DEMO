@@ -7,12 +7,19 @@
 //
 
 #import "ProtocolTestTableViewController.h"
+#import <iOSDFULibrary/iOSDFULibrary-Swift.h>
+#import "Sample-Swift.h"
+#import <AFNetworking/AFNetworking.h>
 
 #define MasterCreate CCBluetoothMaster * master = [CCBluetoothMaster sharedInstance]; master.mainDeviceName = self.device.name;
 #define MasterCommit [master commit];
 
 @interface ProtocolTestTableViewController ()
+
 @property (strong, nonatomic) NSArray *titlesArray;
+
+@property (nonatomic, strong) DFUHelper *dfuHelper;
+
 @end
 
 @implementation ProtocolTestTableViewController
@@ -36,7 +43,9 @@
 		TR(@"打开计步"),
 		TR(@"关闭计步"),
 		TR(@"打开紫外灯监控"),
-		TR(@"关闭紫外灯监控")
+		TR(@"关闭紫外灯监控"),
+		TR(@"OTA"),
+		TR(@"OTA(已进入DFU模式)")
 
 	];
 
@@ -294,8 +303,182 @@
 				success:successBlock
 				failure:failureBlock];
 	}
+	else if ([TR(@"OTA") isEqualToString:title])
+	{
+		dispatch_async(dispatch_queue_create("no-label", DISPATCH_QUEUE_CONCURRENT), ^{
+			__block NSString *localVersion = nil;
+			__block NSString *remoteVersion = nil;
+			__block NSString *updateUrl = nil;
+
+			AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+
+			dispatch_group_enter(group);
+			manager.requestSerializer = [AFJSONRequestSerializer serializer];
+			manager.responseSerializer = [AFJSONResponseSerializer serializer];
+
+			[manager POST:@"https://new.fashioncomm.com/device/queryProductVersion"
+			   parameters:@{
+				@"seq" : [NSString stringWithFormat:@"%f", [NSDate date].timeIntervalSince1970],
+				@"versionNo" : @"112",
+				@"clientType" : @"iphone",
+				@"productCode" : @"wt10ahk_oem_her",
+				@"customerCode" : @"WT10A_HK",
+			}
+				 progress:nil
+				  success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
+				NSLog(@"%@", responseObject);
+				remoteVersion = responseObject[@"crmProductVersion"][@"deviceVersion"];
+				updateUrl = responseObject[@"crmProductVersion"][@"updateUrl"];
+
+				dispatch_group_leave(group);
+			}
+				  failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
+				NSLog(@"query remote firmware version fail");
+			}];
+
+			dispatch_group_enter(group);
+
+			[master addTask:@selector(gettingFirmwareVersion)
+					 params:nil
+					success:^(id object) {
+				localVersion = (NSString *)object;
+				dispatch_group_leave(group);
+			}
+					failure:^(NSError *error) {
+				NSLog(@"query local firmware version fail");
+			}];
+
+			MasterCommit;
+
+			long mask = dispatch_group_wait(group, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC));
+
+			if (mask != 0)
+			{
+				NSLog(@"error");
+			}
+			else
+			{
+				NSLog(@"local : %@  remote : %@", localVersion, remoteVersion);
+
+//				if (remoteVersion.floatValue > localVersion.floatValue)
+				if (true)
+				{
+					NSLog(@"need upgrade");
+
+					__block NSURL *filePath = nil;
+
+					AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+					dispatch_group_enter(group);
+					NSURLSessionDownloadTask *task = [manager downloadTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:updateUrl]]
+																			 progress:^(NSProgress *_Nonnull downloadProgress) {
+						NSLog(@"file download progress : %@", downloadProgress);
+					}
+																		  destination:^NSURL *_Nonnull (NSURL *_Nonnull targetPath, NSURLResponse *_Nonnull response) {
+						NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+						return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+					}
+																	completionHandler:^(NSURLResponse *_Nonnull response, NSURL *_Nullable path, NSError *_Nullable error) {
+						NSLog(@"file path : %@", path);
+						filePath = path;
+						dispatch_group_leave(group);
+					}];
+
+					[task resume];
+
+					dispatch_group_wait(group, dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC));
+
+					if (filePath)
+					{
+			            //change device mode for DFU
+						[master addTask:@selector(beginUpdateByType:) params:@[@9] success:^(id object) {
+							NSLog(@"change mode success");
+							dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+								[ws upgradingWithFilePath:filePath];
+							});
+						} failure:^(NSError *error) {
+							NSLog(@"change mode fail");
+						}];
+
+						MasterCommit;
+					}
+					else
+					{
+						NSLog(@"file download fail");
+					}
+				}
+				else
+				{
+					NSLog(@"No upgrade required");
+				}
+			}
+		});
+		return;
+	}
+	else if ([TR(@"OTA(已进入DFU模式)") isEqualToString:title])
+	{
+		//query file path
+		AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+
+		manager.requestSerializer = [AFJSONRequestSerializer serializer];
+		manager.responseSerializer = [AFJSONResponseSerializer serializer];
+
+		[manager POST:@"https://new.fashioncomm.com/device/queryProductVersion"
+		   parameters:@{
+			@"seq" : [NSString stringWithFormat:@"%f", [NSDate date].timeIntervalSince1970],
+			@"versionNo" : @"112",
+			@"clientType" : @"iphone",
+			@"productCode" : @"wt10ahk_oem_her",
+			@"customerCode" : @"WT10A_HK",
+		}
+			 progress:nil
+			  success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {
+			NSLog(@"%@", responseObject);
+
+			NSString *updateUrl = responseObject[@"crmProductVersion"][@"updateUrl"];
+
+		    //download file
+			AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+
+			NSURLSessionDownloadTask *task2 = [manager downloadTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:updateUrl]]
+																	  progress:^(NSProgress *_Nonnull downloadProgress) {
+				NSLog(@"file download progress : %@", downloadProgress);
+			}
+																   destination:^NSURL *_Nonnull (NSURL *_Nonnull targetPath, NSURLResponse *_Nonnull response) {
+				NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+				return [documentsDirectoryURL URLByAppendingPathComponent:[response suggestedFilename]];
+			}
+															 completionHandler:^(NSURLResponse *_Nonnull response, NSURL *_Nullable filePath, NSError *_Nullable error) {
+		        //START OTA
+				NSLog(@"file path : %@", filePath);
+				[ws upgradingWithFilePath:filePath];
+			}];
+
+			[task2 resume];
+		}
+			  failure:^(NSURLSessionDataTask *_Nullable task, NSError *_Nonnull error) {
+			NSLog(@"query remote firmware version fail");
+		}];
+
+		return;
+	}
 
 	MasterCommit;
+}
+
+- (void)upgradingWithFilePath:(NSURL *)filePath
+{
+	NSString *deviceName = @"10#00000";
+
+	NSLog(@"try to start OTA");
+	self.dfuHelper = [[DFUHelper alloc] initWithPeripheralName:deviceName
+														   url:filePath
+													  progress:^(NSInteger progress, NSString *_Nonnull message) {
+		NSLog(@"progress %ld %@", progress, message);
+	} success:^(NSInteger code, NSString *_Nonnull message) {
+		NSLog(@"success %ld %@", code, message);
+	} failure:^(NSInteger code, NSString *_Nonnull message) {
+		NSLog(@"faile %ld %@", code, message);
+	}];
 }
 
 @end

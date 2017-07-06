@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "09CEA260007C8E5231D7B82FCC83414D49AD268F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "25BFE9C0F405A97CD5E342F91B962C1B7D3251D2" : 9223372036854775807,
+    "09CEA260007C8E5231D7B82FCC83414D49AD268F" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D1FF698C-FC85-4D86-9731-495524D1DF10",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "25BFE9C0F405A97CD5E342F91B962C1B7D3251D2" : "..\/..",
+    "09CEA260007C8E5231D7B82FCC83414D49AD268F" : "CCBluetoothAPI\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CCBluetoothAPISample",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CCBluetoothAPISample\/CCBluetoothAPISample.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/moshiwu\/Her_SDK_DEMO.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "09CEA260007C8E5231D7B82FCC83414D49AD268F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git.oschina.net:moshiwu\/L58S.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "25BFE9C0F405A97CD5E342F91B962C1B7D3251D2"
+    }
+  ]
+}
