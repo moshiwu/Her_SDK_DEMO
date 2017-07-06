@@ -360,8 +360,8 @@
 			{
 				NSLog(@"local : %@  remote : %@", localVersion, remoteVersion);
 
-//				if (remoteVersion.floatValue > localVersion.floatValue)
-				if (true)
+				if (remoteVersion.floatValue > localVersion.floatValue)
+//				if (true)
 				{
 					NSLog(@"need upgrade");
 
