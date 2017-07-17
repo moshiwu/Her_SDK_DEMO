@@ -48,7 +48,7 @@
 ///回调 获取设备端运动/睡眠模式
 - (void)bleResponseForDeviceSportOrSleepState:(NSUInteger)state error:(NSError *)error;
 ///回调获取心率数据
-- (void)bleResponseForHeartRateData:(NSArray *)data error:(NSError *)error;
+- (void)bleResponseForHeartRateDataOrEmotionData:(NSArray *)data error:(NSError *)error;
 ///删除心率数据
 - (void)bleResponseForDeleteHeartRateData:(NSError *)error;
 
@@ -57,10 +57,10 @@
 - (void)bleResponseForSettingUserInformation:(NSError *)error;
 ///获取个人信息
 - (void)bleResponseForGettingUserGender:(BOOL)isFemail
-								 height:(NSUInteger)height
-								 weight:(NSUInteger)weight
-							   birthday:(NSString *)birthday
-								  error:(NSError *)error;
+                                 height:(NSUInteger)height
+                                 weight:(NSUInteger)weight
+                               birthday:(NSString *)birthday
+                                  error:(NSError *)error;
 #pragma mark - Reminders
 ///添加提醒
 - (void)bleResponseForAddingReminder:(NSError *)error;
@@ -150,7 +150,7 @@
 - (void)bleResponseForSetDeviceStateIsOpen:(NSError *)error;
 
 ///获取心率数据总数量
-- (void)bleResponseForHeartRateDataCount:(NSUInteger)count error:(NSError *)error;
+- (void)bleResponseForHeartRateDataOrEmotionDataCount:(NSUInteger)count error:(NSError *)error;
 
 - (void)bleResponseForSetDateTimeFormat:(NSError *)error;
 
@@ -179,6 +179,19 @@
 
 ///Her灯光控制
 - (void)bleResponseForSetLightStateForHer:(NSError *)error;
+
+#pragma mark - BloodPressure
+///血压相关
+- (void)bleResponseForGetBloodPressureDataCount:(NSUInteger)count error:(NSError *)error;
+
+- (void)bleResponseForBloodPressureData:(NSMutableArray <CCBluetoothBloodPressureData *> *)data error:(NSError *)error;
+
+- (void)bleResponseForDeleteBloodPressureData:(NSError *)error;
+
+//手动开启血压、心率测量
+- (void)bleResponseForManuallyModule:(NSError *)error;
+//使用bleResponseForManuallyModule之后，除了基本响应外，还会额外发送一条消息用以回传单次血压数据
+- (void)bleResponseForMessureBloodPressure:(CCBluetoothBloodPressureData *)result;
 
 @end
 

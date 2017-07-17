@@ -12,7 +12,8 @@
 extern NSNotificationName const CCBlueToothPowerStateNotification;
 extern NSNotificationName const CCPeripheralConnectStateNotification;
 extern NSNotificationName const CCBluetoothDidReceiveMediaNotification;
-extern NSNotificationName const CCBluetoothDidHeartRateNotification;
+extern NSNotificationName const CCBluetoothDidReceiveHeartRateNotification;
+extern NSNotificationName const CCBluetoothDidReceiveBloodPressureRateNotification;
 
 extern NSNotificationName const CCBluetoothDidReceiveShortTapNotification;
 extern NSNotificationName const CCBluetoothDidReceiveLongTapNotification;

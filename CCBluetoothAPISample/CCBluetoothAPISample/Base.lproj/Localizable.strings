@@ -33,7 +33,16 @@
 "收到关机通知" = "Receive shut down tap notification";
 "收到低电通知" = "Receive low power notification";
 
-
 "OTA" = "OTA";
 "OTA(已进入DFU模式)" = "OTA(for device in DFU mode)";
 "OTA(failed device)" = "OTA(failed device)";
+
+"心率(心情)数据" = "HeartRate Data";
+"心率(心情)数据数量" = "HeartRate Data Count";
+"主动开启心率测量" = "Manually Open HeartRate Mode";
+"血压数据" = "BloodPressure Data";
+"血压数据数量" = "BloodPressure Data Count";
+"主动开启血压测量" = "Manually Open BloodPressure Data Mode";
+
+"收到即时心率" = "Receive Instant HeartRateData";
+"收到单条血压数据" = "Receive Single BloodPressureData";

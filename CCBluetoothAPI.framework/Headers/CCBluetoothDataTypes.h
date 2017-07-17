@@ -211,6 +211,18 @@ typedef NS_ENUM (int, CCBluetoothDeviceStateTag)
 	CCBluetoothDeviceStateTagUVMonitoring = 0x0E,
 };
 
+/**
+ * 手动开关血压、心率监测
+ * manually open(or close) heartRate(bloodPressure) mode
+ */
+typedef NS_ENUM (uint, CCBlueToothManuallyModule)
+{
+	CCBlueToothManuallyModuleBloodPressure = 0x01,
+	CCBlueToothManuallyModuleHeartRate = 0x02,
+	CCBlueToothManuallyModuleCloseBloodPressure = 0x03,
+	CCBlueToothManuallyModuleCloseHeartRate = 0x04
+};
+
 #pragma mark - Activity Data
 
 /**
@@ -350,6 +362,21 @@ typedef NS_ENUM (int, CCBluetoothDeviceStateTag)
 @interface CCBluetoothEmotionData : NSObject
 @property (nonatomic, assign) NSInteger emotionNumber;
 @property (nonatomic, assign) long long timeStamp;
+@end
+
+#pragma mark - BloodPressure
+
+/**
+ * 血压类型
+ */
+@interface CCBluetoothBloodPressureData : NSObject
+///0x00：停止, 0x01：自动, 0x02：手动, 0x03：血压数据上传状态
+@property (nonatomic, assign) NSUInteger dataFlag;
+///时间戳
+@property (nonatomic, assign) NSUInteger timeStamp;
+///血压值
+@property (nonatomic, assign) NSUInteger pressureMin;
+@property (nonatomic, assign) NSUInteger pressureMax;
 @end
 
 #pragma mark - Light Control For Her

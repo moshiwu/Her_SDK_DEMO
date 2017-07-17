@@ -44,7 +44,13 @@
 		TR(@"关闭计步"),
 		TR(@"打开紫外灯监控"),
 		TR(@"关闭紫外灯监控"),
-		TR(@"OTA")
+		TR(@"OTA"),
+		TR(@"心率(心情)数据"), //某些型号使用心率模块当成心情数据
+		TR(@"心率(心情)数据数量"),
+        TR(@"主动开启心率测量"),
+		TR(@"血压数据"),
+		TR(@"血压数据数量"),
+        TR(@"主动开启血压测量")
 	];
 
 	//do not set delegate when using CCBluetoothMaster
@@ -55,6 +61,9 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification_handler:) name:CCBluetoothDidReceiveShutDownTapNotification object:nil];
 
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification_handler:) name:CCBluetoothDidReceiveLowPowerNotification object:nil];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification_handler:) name:CCBluetoothDidReceiveHeartRateNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification_handler:) name:CCBluetoothDidReceiveBloodPressureRateNotification object:nil];
 }
 
 - (void)notification_handler:(NSNotification *)noti
@@ -77,6 +86,15 @@
 	{
 		[self showMessage:TR(@"收到低电通知")];
 	}
+	else if ([noti.name isEqualToString:CCBluetoothDidReceiveHeartRateNotification])
+	{
+//		[self showMessage:[NSString stringWithFormat:@"%@ %@", TR(@"收到即时心率"), noti.object]];
+        NSLog(@"%@",[NSString stringWithFormat:@"%@ %@", TR(@"收到即时心率"), noti.object]);
+	}
+    else if ([noti.name isEqualToString:CCBluetoothDidReceiveBloodPressureRateNotification])
+    {
+        [self showMessage:[NSString stringWithFormat:@"%@ %@", TR(@"收到单条血压数据"), noti.object]];
+    }
 }
 
 - (void)showMessage:(NSString *)message
@@ -184,6 +202,7 @@
 					success:successBlock
 					failure:failureBlock];
 
+		    //如果在block里面增加任务，不要使用commit
 		    //do not commit in add task block
 		    //MasterCommit
 		} failure:failureBlock];
@@ -358,8 +377,7 @@
 			{
 				NSLog(@"local : %@  remote : %@", localVersion, remoteVersion);
 
-//				if (remoteVersion.floatValue > localVersion.floatValue)
-				if (true)
+				if (remoteVersion.floatValue > localVersion.floatValue)
 				{
 					NSLog(@"need upgrade");
 
@@ -412,6 +430,71 @@
 		});
 		return;
 	}
+	else if ([TR(@"心率(心情)数据") isEqualToString:title]) //某些型号使用心率模块当成心情数据
+	{
+		[master addTask:@selector(getHeartRateOrEmotionDataCount)
+				 params:nil
+				success:^(id object) {
+			int count = [object intValue];
+
+			[master addTask:@selector(getHeartRateDataOrEmotionDataByCount:isHeartRateData:)
+					 params:@[@(count), @YES]
+					success:successBlock
+					failure:failureBlock];
+
+		    //如果在block里面增加任务，不要使用commit
+		    //do not commit in add task block
+		    //MasterCommit
+		} failure:failureBlock];
+	}
+	else if ([TR(@"心率(心情)数据数量") isEqualToString:title])
+	{
+		[master addTask:@selector(getHeartRateOrEmotionDataCount)
+				 params:nil
+				success:successBlock
+				failure:failureBlock];
+	}
+	else if ([TR(@"血压数据") isEqualToString:title])
+	{
+		[master addTask:@selector(getBloodPressureCount)
+				 params:nil
+				success:^(id object) {
+			int count = [object intValue];
+
+			[master addTask:@selector(getBloodPressureByCount:)
+					 params:@[@(count)]
+					success:successBlock
+					failure:failureBlock];
+
+		    //如果在block里面增加任务，不要使用commit
+		    //do not commit in add task block
+		    //MasterCommit
+		} failure:failureBlock];
+	}
+	else if ([TR(@"血压数据数量") isEqualToString:title])
+	{
+		[master addTask:@selector(getBloodPressureCount)
+				 params:nil
+				success:successBlock
+				failure:failureBlock];
+	}
+    else if ([TR(@"主动开启心率测量") isEqualToString:title])
+    {
+        //开启心率测量后，在30~60秒后，设备里面心率条数会增加1，不会主动推送消息过来（区别于血压），所以需要自己定时用getHeartRateOrEmotionDataCount来查询条数
+        [master addTask:@selector(manuallyOpenModule:)
+                 params:@[@(CCBlueToothManuallyModuleHeartRate)]
+                success:successBlock
+                failure:failureBlock];
+    }
+    else if ([TR(@"主动开启血压测量") isEqualToString:title])
+    {
+        //开启血压测量后，30~60秒后，会主动推送一条消息（CCBluetoothDidReceiveBloodPressureRateNotification）
+        [master addTask:@selector(manuallyOpenModule:)
+                 params:@[@(CCBlueToothManuallyModuleBloodPressure)]
+                success:successBlock
+                failure:failureBlock];
+        
+    }
 
 	MasterCommit;
 }

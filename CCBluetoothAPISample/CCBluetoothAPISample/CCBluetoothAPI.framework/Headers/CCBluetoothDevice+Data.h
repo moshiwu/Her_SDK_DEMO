@@ -35,7 +35,18 @@
 - (void)getSleepDataByCount:(int)count;
 
 ///获取心率总数
-- (void)getHeartRateDataCount;
+- (void)getHeartRateOrEmotionDataCount;
 ///根据总条数获取心率数据
-- (void)getHeartRateDataByCount:(int)count;
+- (void)getHeartRateDataOrEmotionDataByCount:(int)count isHeartRateData:(BOOL)isHeartRateData;
+
+#pragma mark - BloodPressure
+///获取血压总数
+- (void)getBloodPressureCount;
+///根据血压总条数获取血压数据
+- (void)getBloodPressureByCount:(int)count;
+
+- (void)manuallyDeleteBloodPressureData;
+
+- (void)manuallyOpenModule:(CCBlueToothManuallyModule)module;
+
 @end
