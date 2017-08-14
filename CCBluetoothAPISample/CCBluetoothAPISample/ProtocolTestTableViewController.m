@@ -32,6 +32,7 @@
 		TR(@"电量"),
 		TR(@"Watch ID"),
 		TR(@"固件版本"),
+        TR(@"固件MAC地址"),
 		TR(@"恢复出厂设置"),
 		TR(@"运动数据"),
 		TR(@"运动数据数量"),
@@ -494,6 +495,13 @@
                 success:successBlock
                 failure:failureBlock];
         
+    }
+    else if ([TR(@"固件MAC地址") isEqualToString:title])
+    {
+        [master addTask:@selector(gettingFirmwareMACAddress)
+                 params:nil
+                success:successBlock
+                failure:failureBlock];
     }
 
 	MasterCommit;

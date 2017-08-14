@@ -27,7 +27,6 @@
  *  @param params 命令SEL的参数
  *  @param success ...
  *  @param failure ...
- *  @return <#return value description#>
  */
 + (instancetype)taskWithSelector:(SEL)selector params:(NSArray *)params success:(CCBluetoothMasterSuccess)success failure:(CCBluetoothMasterFailure)failure;
 
@@ -38,7 +37,6 @@
  *  @param params 命令SEL的参数
  *  @param callback 回调SEL，最多只能有两个参数（CCBluetoothDeviceProtocol里面定义的接口最多为两个）
  *  @param callbackTarget 回调SEL的target
- *  @return <#return value description#>
  */
 + (instancetype)taskWithSelector:(SEL)selector params:(NSArray *)params callback:(SEL)callback callbackTarget:(NSObject *)callbackTarget;
 

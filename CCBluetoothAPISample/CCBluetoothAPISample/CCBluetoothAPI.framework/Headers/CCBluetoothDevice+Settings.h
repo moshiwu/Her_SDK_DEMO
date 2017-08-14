@@ -121,9 +121,11 @@
 
 - (void)setDateUnitFormat:(int)unitFormat;
 
+
 - (void)setSleepTarget:(int)goalValue;
 
 - (void)setDeviceStateIsOpen:(CCBluetoothDeviceStateTag)intType andIsOpen:(int)isOpen;
+
 
 - (void)beginUpdateByType:(int)intType;
 
@@ -149,5 +151,17 @@
  *  light controll for Her only.
  */
 - (void)setLightStateForHer:(CCBluetoothLightControlModel *)stateModel;
+
+- (void)setWeather:(CCWeatherType)type temperature:(int)temperature aqi:(CCAirQualityIndexType)aqi city:(NSString *)city;
+
+
+
+#pragma mark - 主动回复设备
+
+- (void)responseToDeviceWithCode:(int)reponseCode status:(CCStatusResponseToDevice)status;
+
+/// 查询当前系统音乐的播放状态  正在播放/未在播放
+- (void)responseToDeviceWithPlaybackState:(BOOL)playing;
+- (void)responseToDeviceWithPlayingMediaTitle:(NSString *)title isPlaying:(BOOL)playing;
 
 @end

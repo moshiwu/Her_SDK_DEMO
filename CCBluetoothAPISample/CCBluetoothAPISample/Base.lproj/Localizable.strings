@@ -9,6 +9,7 @@
 "电量" = "Battery";
 "Watch ID" = "Watch ID";
 "固件版本" = "Firmware Version";
+"固件MAC地址" = "Firmware MAC Address";
 "恢复出厂设置" = "Reset";
 "运动数据" = "Sport Data";
 "运动数据数量" = "Sport Data Count";

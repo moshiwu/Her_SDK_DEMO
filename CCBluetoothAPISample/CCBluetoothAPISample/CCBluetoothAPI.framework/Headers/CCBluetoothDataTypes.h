@@ -223,6 +223,42 @@ typedef NS_ENUM (uint, CCBlueToothManuallyModule)
 	CCBlueToothManuallyModuleCloseHeartRate = 0x04
 };
 
+/**
+ *  天气状态
+ */
+typedef NS_ENUM (NSInteger, CCWeatherType)
+{
+	CCWeatherTypeSunny,  //晴天
+	CCWeatherTypeCloudy, //阴天
+	CCWeatherTypeRain,   //雨天
+	CCWeatherTypeSnow    //雪
+};
+
+/**
+ *  空气污染指数
+ *
+ */
+typedef NS_ENUM (NSUInteger, CCAirQualityIndexType)
+{
+	CCAirQualityIndexTypeExcellent,           //优
+	CCAirQualityIndexTypeGood,                //良
+	CCAirQualityIndexTypeMildPollution,       //轻度污染
+	CCAirQualityIndexTypeModeratelyPollution, //中度污染
+	CCAirQualityIndexTypeSeverePollution,     //重度污染
+	CCAirQualityIndexTypeSeriousPollution,    //严重污染
+};
+
+
+
+/**
+ 手机响应手环主动发送的命令
+ */
+typedef NS_ENUM(int, CCStatusResponseToDevice) {
+    CCStatusResponseToDeviceSuccess, //成功
+    CCStatusResponseToDeviceFail,//失败
+    CCStatusResponseToDeviceProtocolError,//协议解释错误
+};
+
 #pragma mark - Activity Data
 
 /**
@@ -386,3 +422,13 @@ typedef NS_ENUM (uint, CCBlueToothManuallyModule)
 + (instancetype)allCloseModel;
 + (instancetype)allOpenModel;
 @end
+
+//#pragma mark - Weather & AQI
+//@interface CCWeatherInfoData : NSObject
+//
+//@property (nonatomic, assign) CCWeatherType weatherType;
+//@property (nonatomic, strong) NSString *temperature;
+//@property (nonatomic, assign) CCAirQualityIndexType aqi;
+//@property (nonatomic, strong) NSString *city;
+//
+//@end

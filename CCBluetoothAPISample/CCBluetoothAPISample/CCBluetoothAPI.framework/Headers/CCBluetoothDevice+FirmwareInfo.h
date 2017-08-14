@@ -20,4 +20,6 @@
 ///固件ID
 - (void)gettingFirmwareID;
 
+- (void)gettingFirmwareMACAddress;
+
 @end

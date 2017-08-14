@@ -43,10 +43,14 @@ typedef void (^CCBluetoothDeviceSendDataCallback)(CCBluetoothDevice *device, NSD
 
 ///响应回调超时时间
 @property (assign, nonatomic) NSUInteger responseInterval;
+@property (strong, nonatomic) NSTimer *responseTimer; //公开给分类调用
+
 
 @property (strong, nonatomic, readonly) NSArray *services;
 
 @property (weak, nonatomic) id <CCBluetoothDeviceDelegate> delegate;
+
+
 
 #pragma mark - OTA
 @property (nonatomic, strong) NSArray *firmwareData;
@@ -80,7 +84,8 @@ typedef void (^CCBluetoothDeviceSendDataCallback)(CCBluetoothDevice *device, NSD
  * @param callback 回调
  */
 - (void)sendData:(NSData *)data completion:(CCBluetoothDeviceSendDataCallback)callback;
-
+//发送数据
+- (void)sendMediaData:(NSData *)data completion:(CCBluetoothDeviceSendDataCallback)callback;
 /**
  * 发送数据
  *
@@ -89,7 +94,7 @@ typedef void (^CCBluetoothDeviceSendDataCallback)(CCBluetoothDevice *device, NSD
  * @param callback 回调
  */
 - (void)sendBytes:(Byte *)bytes bytesLen:(NSUInteger)bytesLen completion:(CCBluetoothDeviceSendDataCallback)callback;
-
+- (void)sendToMediaBytes:(Byte *)bytes bytesLen:(NSUInteger)bytesLen completion:(CCBluetoothDeviceSendDataCallback)callback;
 /**
  * 获取错误信息
  *

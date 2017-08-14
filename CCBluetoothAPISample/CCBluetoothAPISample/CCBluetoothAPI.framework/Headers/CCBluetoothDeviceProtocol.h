@@ -28,6 +28,8 @@
 - (void)bleResponseForFirmwareVersion:(NSString *)version error:(NSError *)error;
 ///获取固件ID
 - (void)bleResponseForFirmwareID:(NSString *)firmwareID error:(NSError *)error;
+///获取固件MAC地址
+- (void)bleResponseForFirmwareMACAddress:(NSString *)address error:(NSError *)error;
 
 #pragma mark - Data
 ///获取运动数据，data的子项类型为 CCBluetoothActivityData
@@ -57,10 +59,10 @@
 - (void)bleResponseForSettingUserInformation:(NSError *)error;
 ///获取个人信息
 - (void)bleResponseForGettingUserGender:(BOOL)isFemail
-                                 height:(NSUInteger)height
-                                 weight:(NSUInteger)weight
-                               birthday:(NSString *)birthday
-                                  error:(NSError *)error;
+								 height:(NSUInteger)height
+								 weight:(NSUInteger)weight
+							   birthday:(NSString *)birthday
+								  error:(NSError *)error;
 #pragma mark - Reminders
 ///添加提醒
 - (void)bleResponseForAddingReminder:(NSError *)error;
@@ -156,6 +158,8 @@
 
 - (void)bleResponseForSetUnitFormat:(NSError *)error;
 
+
+
 - (void)bleResponseForBeginUpdateByType:(NSError *)error;
 
 ///获取心率监测间隔
@@ -180,6 +184,8 @@
 ///Her灯光控制
 - (void)bleResponseForSetLightStateForHer:(NSError *)error;
 
+- (void)bleResponseForSetWeather:(NSError *)error;
+
 #pragma mark - BloodPressure
 ///血压相关
 - (void)bleResponseForGetBloodPressureDataCount:(NSUInteger)count error:(NSError *)error;
@@ -193,6 +199,12 @@
 //使用bleResponseForManuallyModule之后，除了基本响应外，还会额外发送一条消息用以回传单次血压数据
 - (void)bleResponseForMessureBloodPressure:(CCBluetoothBloodPressureData *)result;
 
+#pragma mark - other
+- (void)bleResponseForResponseToDevice:(NSError *)error;
+
+/// 查询当前系统音乐软件的播放状态
+- (void)bleResponseForQueryPlaybackState:(NSError *)error;
+- (void)bleResponseForUploadPlayingMusicInfo:(NSError *)error;
 @end
 
 #endif /* CCBluetoothDeviceProtocol_h */
