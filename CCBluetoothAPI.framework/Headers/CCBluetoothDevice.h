@@ -41,16 +41,15 @@ typedef void (^CCBluetoothDeviceSendDataCallback)(CCBluetoothDevice *device, NSD
 ///信号强度
 @property (assign, nonatomic) NSInteger RSSI;
 
+///MAC地址 只有通过广播搜索到的设备才能直接获取到MAC地址，如果是已经配对的设备则无法获取，需要通过指令读取
+@property (nonatomic, strong) NSString *macAddress;
+
 ///响应回调超时时间
 @property (assign, nonatomic) NSUInteger responseInterval;
-@property (strong, nonatomic) NSTimer *responseTimer; //公开给分类调用
-
 
 @property (strong, nonatomic, readonly) NSArray *services;
 
 @property (weak, nonatomic) id <CCBluetoothDeviceDelegate> delegate;
-
-
 
 #pragma mark - OTA
 @property (nonatomic, strong) NSArray *firmwareData;
@@ -86,6 +85,7 @@ typedef void (^CCBluetoothDeviceSendDataCallback)(CCBluetoothDevice *device, NSD
 - (void)sendData:(NSData *)data completion:(CCBluetoothDeviceSendDataCallback)callback;
 //发送数据
 - (void)sendMediaData:(NSData *)data completion:(CCBluetoothDeviceSendDataCallback)callback;
+
 /**
  * 发送数据
  *
@@ -95,6 +95,7 @@ typedef void (^CCBluetoothDeviceSendDataCallback)(CCBluetoothDevice *device, NSD
  */
 - (void)sendBytes:(Byte *)bytes bytesLen:(NSUInteger)bytesLen completion:(CCBluetoothDeviceSendDataCallback)callback;
 - (void)sendToMediaBytes:(Byte *)bytes bytesLen:(NSUInteger)bytesLen completion:(CCBluetoothDeviceSendDataCallback)callback;
+
 /**
  * 获取错误信息
  *
