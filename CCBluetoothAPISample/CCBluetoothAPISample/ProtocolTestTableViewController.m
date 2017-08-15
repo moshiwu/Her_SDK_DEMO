@@ -51,7 +51,8 @@
         TR(@"主动开启心率测量"),
 		TR(@"血压数据"),
 		TR(@"血压数据数量"),
-        TR(@"主动开启血压测量")
+        TR(@"主动开启血压测量"),
+        TR(@"主动断开连接"),
 	];
 
 	//do not set delegate when using CCBluetoothMaster
@@ -502,6 +503,17 @@
                  params:nil
                 success:successBlock
                 failure:failureBlock];
+    }
+   
+
+    else if ([TR(@"主动断开连接") isEqualToString:title])
+    {
+        [master.mainDevice disableReconnect];  //如果不是使用CCBluetoothMaster，直接使用CCBluetoothDevice也可以
+        [master.mainDevice disConnectWithCompletion:^(CCBluetoothDevice *device, NSError *error) {
+            NSLog(@"断开连接");
+        }];
+        
+        return;
     }
 
 	MasterCommit;
