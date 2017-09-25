@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GlobalHeader.h"
 #import <CCBluetoothAPI/CCBluetoothAPI.h>
-
 //#import "CCBluetoothAPI.h"
 
-#define TR(a) NSLocalizedString(a, a)
 
 @class CCBluetoothDevice;
 @interface ProtocolTestTableViewController : UITableViewController

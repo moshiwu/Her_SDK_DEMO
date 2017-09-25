@@ -5,4 +5,7 @@ target 'CCBluetoothAPISample' do
 	use_frameworks!
 	pod 'iOSDFULibrary'
     pod 'AFNetworking'
+    pod 'SVProgressHUD'
+    pod 'Masonry'
+    pod 'IQKeyboardManager' 
 end

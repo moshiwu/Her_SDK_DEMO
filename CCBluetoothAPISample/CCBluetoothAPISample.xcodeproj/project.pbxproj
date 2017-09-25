@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3D43FE021F0DC5D100087E48 /* DFUHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D43FE011F0DC5D100087E48 /* DFUHelper.swift */; };
+		3D450E2C1F78A493009D94D4 /* CCBluetoothAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D450E2B1F78A450009D94D4 /* CCBluetoothAPI.framework */; };
+		3D8103921F53AA5200ED4795 /* UIViewController+HudAndTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8103911F53AA5200ED4795 /* UIViewController+HudAndTimer.m */; };
 		3D9032FC1F0347F90051B842 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D9032FE1F0347F90051B842 /* Localizable.strings */; };
-		3DD87E3F1F418E9200FD760C /* CCBluetoothAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DD87E3E1F418E8E00FD760C /* CCBluetoothAPI.framework */; };
 		54CD83C5EA15FAB63420CF21 /* Pods_CCBluetoothAPISample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6C2B51059194A4A206D2A9F /* Pods_CCBluetoothAPISample.framework */; };
 		8402AD781BC7AA0700D303CB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402AD771BC7AA0700D303CB /* main.m */; };
 		8402AD7B1BC7AA0700D303CB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8402AD7A1BC7AA0700D303CB /* AppDelegate.m */; };
@@ -36,11 +37,14 @@
 /* Begin PBXFileReference section */
 		3D43FDFE1F0DC4CC00087E48 /* CCBluetoothAPISample-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CCBluetoothAPISample-Bridging-Header.h"; sourceTree = "<group>"; };
 		3D43FE011F0DC5D100087E48 /* DFUHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DFUHelper.swift; sourceTree = "<group>"; };
+		3D450E2B1F78A450009D94D4 /* CCBluetoothAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCBluetoothAPI.framework; sourceTree = "<group>"; };
+		3D8103901F53AA5100ED4795 /* UIViewController+HudAndTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HudAndTimer.h"; sourceTree = "<group>"; };
+		3D8103911F53AA5200ED4795 /* UIViewController+HudAndTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HudAndTimer.m"; sourceTree = "<group>"; };
+		3D8103931F53AD9400ED4795 /* GlobalHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalHeader.h; sourceTree = "<group>"; };
 		3D9032F61F03471E0051B842 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		3D9032F71F03471E0051B842 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3D9032FD1F0347F90051B842 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D9033001F0348080051B842 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		3DD87E3E1F418E8E00FD760C /* CCBluetoothAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CCBluetoothAPI.framework; sourceTree = "<group>"; };
 		4BD7A62970BB63D78E80C701 /* Pods-CCBluetoothAPISample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCBluetoothAPISample.release.xcconfig"; path = "Pods/Target Support Files/Pods-CCBluetoothAPISample/Pods-CCBluetoothAPISample.release.xcconfig"; sourceTree = "<group>"; };
 		7084ECBE38D1E62F9ABA032D /* Pods-CCBluetoothAPISample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCBluetoothAPISample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CCBluetoothAPISample/Pods-CCBluetoothAPISample.debug.xcconfig"; sourceTree = "<group>"; };
 		8402AD731BC7AA0700D303CB /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DD87E3F1F418E9200FD760C /* CCBluetoothAPI.framework in Frameworks */,
+				3D450E2C1F78A493009D94D4 /* CCBluetoothAPI.framework in Frameworks */,
 				54CD83C5EA15FAB63420CF21 /* Pods_CCBluetoothAPISample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,13 +113,16 @@
 		8402AD751BC7AA0700D303CB /* CCBluetoothAPISample */ = {
 			isa = PBXGroup;
 			children = (
-				3DD87E3E1F418E8E00FD760C /* CCBluetoothAPI.framework */,
+				3D450E2B1F78A450009D94D4 /* CCBluetoothAPI.framework */,
 				8402AD791BC7AA0700D303CB /* AppDelegate.h */,
 				8402AD7A1BC7AA0700D303CB /* AppDelegate.m */,
+				3D8103901F53AA5100ED4795 /* UIViewController+HudAndTimer.h */,
+				3D8103911F53AA5200ED4795 /* UIViewController+HudAndTimer.m */,
 				8402AD7C1BC7AA0700D303CB /* ViewController.h */,
 				8402AD7D1BC7AA0700D303CB /* ViewController.m */,
 				845AAC0E1BCBB6D800B284E3 /* ProtocolTestTableViewController.h */,
 				845AAC0F1BCBB6D800B284E3 /* ProtocolTestTableViewController.m */,
+				3D8103931F53AD9400ED4795 /* GlobalHeader.h */,
 				3D43FE011F0DC5D100087E48 /* DFUHelper.swift */,
 				3D9032FE1F0347F90051B842 /* Localizable.strings */,
 				8402AD7F1BC7AA0700D303CB /* Main.storyboard */,
@@ -150,6 +157,7 @@
 				84BB1CF61BE1FE6B005D4384 /* Embed Frameworks */,
 				E6B13A774B81FA5ECC642939 /* [CP] Embed Pods Frameworks */,
 				1A7EB41BEA3364C1B2EEF562 /* [CP] Copy Pods Resources */,
+				3D450E2A1F78A043009D94D4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -217,13 +225,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CCBluetoothAPISample-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		1A7EB41BEA3364C1B2EEF562 /* [CP] Copy Pods Resources */ = {
@@ -241,15 +252,41 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CCBluetoothAPISample/Pods-CCBluetoothAPISample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E6B13A774B81FA5ECC642939 /* [CP] Embed Pods Frameworks */ = {
+		3D450E2A1F78A043009D94D4 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo $CONFIGURATION\nif [ \"Release\" == \"${CONFIGURATION}\" ]\nthen\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\necho \"build number increase\"\nfi";
+		};
+		E6B13A774B81FA5ECC642939 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CCBluetoothAPISample/Pods-CCBluetoothAPISample-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Zip/Zip.framework",
+				"${BUILT_PRODUCTS_DIR}/iOSDFULibrary/iOSDFULibrary.framework",
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Zip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDFULibrary.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -265,6 +302,7 @@
 			files = (
 				8402AD7E1BC7AA0700D303CB /* ViewController.m in Sources */,
 				8402AD7B1BC7AA0700D303CB /* AppDelegate.m in Sources */,
+				3D8103921F53AA5200ED4795 /* UIViewController+HudAndTimer.m in Sources */,
 				845AAC101BCBB6D800B284E3 /* ProtocolTestTableViewController.m in Sources */,
 				3D43FE021F0DC5D100087E48 /* DFUHelper.swift in Sources */,
 				8402AD781BC7AA0700D303CB /* main.m in Sources */,
@@ -400,6 +438,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = W74YV9GZDZ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -415,10 +454,10 @@
 					"-ObjC",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appscomm.CCBluetoothDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appscomm.HerSDKTool;
 				PRODUCT_NAME = Sample;
-				PROVISIONING_PROFILE = "c34955d5-d240-4236-8429-a3b07b46248a";
-				PROVISIONING_PROFILE_SPECIFIER = AcommonId;
+				PROVISIONING_PROFILE = "381e4bcf-03d5-431d-a933-d67b0f7545b1";
+				PROVISIONING_PROFILE_SPECIFIER = HerSDKTool_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "CCBluetoothAPISample/CCBluetoothAPISample-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -435,6 +474,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = W74YV9GZDZ;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -450,10 +490,10 @@
 					"-ObjC",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.appscomm.CCBluetoothDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.appscomm.HerSDKTool;
 				PRODUCT_NAME = Sample;
-				PROVISIONING_PROFILE = "89004ad6-2bb4-478e-b305-d039118946d0";
-				PROVISIONING_PROFILE_SPECIFIER = CCBluetoothDemo_dis;
+				PROVISIONING_PROFILE = "d817ab70-8d33-4955-906d-a1d4caefc6ce";
+				PROVISIONING_PROFILE_SPECIFIER = HerSDKTool_dis;
 				SWIFT_OBJC_BRIDGING_HEADER = "CCBluetoothAPISample/CCBluetoothAPISample-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

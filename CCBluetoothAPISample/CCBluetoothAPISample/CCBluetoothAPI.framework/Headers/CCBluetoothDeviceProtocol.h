@@ -30,6 +30,10 @@
 - (void)bleResponseForFirmwareID:(NSString *)firmwareID error:(NSError *)error;
 ///获取固件MAC地址
 - (void)bleResponseForFirmwareMACAddress:(NSString *)address error:(NSError *)error;
+///给工厂的测试Sensor方法
+- (void)bleResponseForTestSensor:(NSArray *)result error:(NSError *)error;
+///给工厂的修改watch id的方法
+- (void)bleResponseForTestChangeWatchId:(NSError *)error;
 
 #pragma mark - Data
 ///获取运动数据，data的子项类型为 CCBluetoothActivityData
@@ -59,10 +63,10 @@
 - (void)bleResponseForSettingUserInformation:(NSError *)error;
 ///获取个人信息
 - (void)bleResponseForGettingUserGender:(BOOL)isFemail
-								 height:(NSUInteger)height
-								 weight:(NSUInteger)weight
-							   birthday:(NSString *)birthday
-								  error:(NSError *)error;
+                                 height:(NSUInteger)height
+                                 weight:(NSUInteger)weight
+                               birthday:(NSString *)birthday
+                                  error:(NSError *)error;
 #pragma mark - Reminders
 ///添加提醒
 - (void)bleResponseForAddingReminder:(NSError *)error;
@@ -157,8 +161,6 @@
 - (void)bleResponseForSetDateTimeFormat:(NSError *)error;
 
 - (void)bleResponseForSetUnitFormat:(NSError *)error;
-
-
 
 - (void)bleResponseForBeginUpdateByType:(NSError *)error;
 

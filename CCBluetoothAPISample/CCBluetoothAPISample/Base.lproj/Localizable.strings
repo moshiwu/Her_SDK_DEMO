@@ -47,3 +47,6 @@
 
 "收到即时心率" = "Receive Instant HeartRateData";
 "收到单条血压数据" = "Receive Single BloodPressureData";
+"修改" = "Modify";
+"输入8位后缀" = "Enter 8-bit suffix";
+"测试Sensor" = "Test Sensor";

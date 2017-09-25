@@ -22,4 +22,8 @@
 
 - (void)gettingFirmwareMACAddress;
 
+- (void)testSensor;
+
+- (void)testForChangeWatchId:(NSString *)value;
+
 @end
